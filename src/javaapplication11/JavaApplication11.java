@@ -48,6 +48,8 @@ public class JavaApplication11 {
             case SUMMER:
                 System.out.println("it is hot!");
                 break;
+        }
+       
     }
        
     public boolean isSeason(){
