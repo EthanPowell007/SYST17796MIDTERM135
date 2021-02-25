@@ -10,6 +10,8 @@ package javaapplication11;
  * @author r2kar
  */
 
+import java.util.Scanner;
+
 public class JavaApplication11 {
 
     /**
@@ -17,12 +19,14 @@ public class JavaApplication11 {
      */
     Seasons season;
     private boolean abc=true;
+    
     public enum Seasons{
         FALL,
         WINTER,
         SPRING,
         SUMMER
     }
+    
     //a constructor
     public JavaApplication11(Seasons season)
     {
@@ -44,21 +48,41 @@ public class JavaApplication11 {
             case SUMMER:
                 System.out.println("it is hot!");
                 break;
-     }
     }
+       
+    public boolean isSeason(){
+        
+        boolean realSeason;
+        
+        if(Seasons.values() == null){
+            realSeason = false;
+        }else{
+            realSeason = true;
+        }
+        
+        return realSeason;
+        
+    } 
+       
+    
     public static void main(String[] args) {
         // TODO code application logic here
         // try to get the input (myStr) from the user
-        String myStr= "SUMMER";
-        JavaApplication11 test1= new JavaApplication11(Seasons.valueOf(myStr));
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("What season is it? (All caps please.)");
+        String myStr = input.nextLine();
+        
+        JavaApplication11 test1 = new JavaApplication11(Seasons.valueOf(myStr));
+        test1.isSeason();
         test1.seasonDescription();
+        
         //test1.isSeason();
         int ord = Seasons.valueOf(myStr).ordinal();
         System.out.println(Seasons.valueOf(myStr).ordinal());
         //a for loop that iterated thru the Seasons Enum using values() method
         for (Seasons mySeason: Seasons.values())
-        {
-            
+        {            
             System.out.println(mySeason);
         }
        
